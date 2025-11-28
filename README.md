@@ -1,6 +1,6 @@
 # Smart UI Copy Assistant
 
-A polished **Next.js + AI** full‑stack project that generates UX microcopy (buttons, tooltips, banners, error messages) using OpenAI models. Includes advanced features like **Improve Copy**, **Translate Copy**, and a fully custom **dark‑mode professional UI**.
+A polished **Next.js + AI** full‑stack learning project that generates UX microcopy (buttons, tooltips, banners, error messages) using OpenAI models. Includes advanced features like **Improve Copy**, **Translate Copy**, and a fully custom **dark‑mode professional UI**.
 
 This project is perfect for:
 
@@ -35,7 +35,7 @@ Custom black theme powered by Tailwind + CSS variables.
 ### ✔ Smooth UX
 
 * Animated fade‑in transitions
-* Non‑blocking result cards (no alert popups)
+* Non‑blocking result cards
 * Auto‑scroll to results
 * Card hover effects
 * Polished interactions
@@ -44,8 +44,8 @@ Custom black theme powered by Tailwind + CSS variables.
 
 # 🛠️ Tech Stack
 
-* **Next.js 14** (App Router)
-* **React 18**
+* **Next.js 16** (App Router)
+* **React 19**
 * **TailwindCSS** (custom dark mode)
 * **OpenAI API** (`gpt-4o-mini`)
 * **TypeScript**
@@ -57,7 +57,7 @@ Custom black theme powered by Tailwind + CSS variables.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/smart-ui-copy-assistant.git
+git clone https://github.com/itsmetrina/smart-ui-copy-assistant.git
 cd smart-ui-copy-assistant
 ```
 
@@ -96,7 +96,7 @@ Open in browser:
 
 Deploying this project on Vercel is extremely simple.
 
-### Step 1 — Install Vercel CLI (optional)
+### Step 1 — Install Vercel CLI
 
 ```bash
 npm i -g vercel
@@ -148,10 +148,9 @@ app/
   │   ├── ImproveResult.tsx
   │   └── TranslateResult.tsx
   ├── layout.tsx
-  └── page.tsx
-public/
-styles/
+  ├── page.tsx
   └── globals.css
+public/
 .env.local
 ```
 
@@ -191,12 +190,12 @@ AI returns:
 ```
 
 ---
-
+<!-- 
 # 🎨 UI Screenshots
 
 *(Optional — Add images once deployed)*
 
----
+--- -->
 
 # 🤝 Contributing
 
@@ -211,7 +210,6 @@ Feel free to open issues or PRs for improvements, new features, or suggestions.
 * History panel
 * Language selector
 * Framer Motion animation upgrades
-* Light/Dark toggle (if needed later)
 
 ---
 
@@ -223,7 +221,7 @@ MIT License — free to use, modify, and share.
 
 # 🚀 Final Note
 
-This project is a clean, portfolio‑ready demonstration of:
+This project is a clean, my portfolio‑ready demonstration of:
 
 * Next.js full‑stack skills
 * AI integration
