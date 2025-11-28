@@ -49,7 +49,7 @@ export default function CopyForm({ onResult }: any) {
             />
             <button
                 onClick={generate}
-                className="w-full px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-medium"
+                className="w-full px-4 py-2 rounded bg-yellow-600 hover:bg-yellow-700 hover:cursor-pointer text-white font-medium"
             >
                 {loading ? "Generating..." : "Generate Copy"}
             </button>
