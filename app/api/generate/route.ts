@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { rateLimit } from "../_lib/rateLimiter";
 
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -24,6 +25,17 @@ function extractJsonArray(raw: string): string[] {
 }
 
 export async function POST(req: Request) {
+    const ip = req.headers.get("x-forwarded-for") || "local";
+    const limit = rateLimit(ip);
+    if (!limit.allowed) {
+        return NextResponse.json(
+            {
+                error: "Too many requests. Please wait a few seconds.",
+                retryAfter: limit.retryAfter,
+            },
+            { status: 429 }
+        );
+    }
     const { component, tone, context } = await req.json();
     const prompt = `
         You are a UX writing expert.

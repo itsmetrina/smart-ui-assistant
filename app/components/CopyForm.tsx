@@ -2,30 +2,15 @@
 
 import { useState } from "react";
 
-export default function CopyForm({ onResult }: any) {
+export default function CopyForm({ onGenerate }: { onGenerate: (component: string, tone: string, context: string) => void; }) {
     const [component, setComponent] = useState("button");
     const [tone, setTone] = useState("friendly");
     const [context, setContext] = useState("");
-    const [loading, setLoading] = useState(false);
 
-    async function generate() {
-        setLoading(true);
-        const res = await fetch("/api/generate", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ component, tone, context })
-        });
-        const data = await res.json();
-        onResult({
-            ideas: data.ideas,
-            action: "Generate",
-            component,
-            tone,
-            context
-        });
-        setLoading(false);
+    function handleSubmit() {
+        onGenerate(component, tone, context);
     }
-
+    
     return (
         <div className="card space-y-4">
             <select
@@ -54,10 +39,10 @@ export default function CopyForm({ onResult }: any) {
                 className="bg-[#111] border border-[#333] p-2 rounded w-full min-h-20"
             />
             <button
-                onClick={generate}
-                className="w-full px-4 py-2 rounded bg-yellow-600 hover:bg-yellow-700 hover:cursor-pointer text-white font-medium"
+                onClick={handleSubmit}
+                className="w-full px-4 py-2 rounded bg-yellow-600 hover:bg-yellow-700 text-white font-medium"
             >
-                {loading ? "Generating..." : "Generate Copy"}
+                Create Suggestions
             </button>
         </div>
     );

@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 export interface HistoryEntry {
     timestamp: number;
     action: string; // "Generate" | "Improve" | "Translate"
-    component: string;
-    tone: string;
     context: string;
     ideas: string[];
+    component?: string | null;
+    tone?: string | null;
 }
 
 export default function useHistory() {

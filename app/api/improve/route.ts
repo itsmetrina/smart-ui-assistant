@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { rateLimit } from "../_lib/rateLimiter";
 
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
@@ -7,10 +8,21 @@ const client = new OpenAI({
 
 function cleanText(raw: string): string {
     if (!raw) return "";
-    return raw.replace(/```json|```/gi, "").trim();
+    return raw.replace(/```json|```/gi, "").replaceAll('"', '').trim();
 }
 
 export async function POST(req: Request) {
+    const ip = req.headers.get("x-forwarded-for") || "local";
+    const limit = rateLimit(ip);
+    if (!limit.allowed) {
+        return NextResponse.json(
+            {
+                error: "Too many requests. Please wait a few seconds.",
+                retryAfter: limit.retryAfter,
+            },
+            { status: 429 }
+        );
+    }
     const { text } = await req.json();
     const prompt = `Improve this UX copy without changing its meaning:\n"${text}"`;
     const res = await client.chat.completions.create({

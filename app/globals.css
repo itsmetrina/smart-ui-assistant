@@ -37,6 +37,10 @@ body {
 	}
 }
 
+button {
+	cursor: pointer;
+}
+
 .animate-fadeIn {
 	animation: fadeIn 0.25s ease-out forwards;
 }
@@ -53,4 +57,32 @@ body {
 .card:hover {
 	border-color: #444;
 	background: #151515;
+}
+
+@keyframes loadingBar {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+.animate-loading-bar {
+	animation: loadingBar 1s linear infinite;
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(100%);
+	}
+
+	to {
+		transform: translateY(0%);
+	}
+}
+
+.animate-slideUp {
+	animation: slideUp 0.3s ease-out;
 }
