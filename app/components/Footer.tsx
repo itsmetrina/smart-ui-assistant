@@ -6,26 +6,29 @@ export default function Footer() {
             <p className="mb-1">
                 Built by
                 <span className="text-gray-300 font-medium">
-                    <a href="">
+                    <a
+                        href="https://itsmetrina.github.io/Trina-Sikdar/"
+                        target="_blank"
+                        rel="noopener noreferrer">
                         ❤️ Trina
                     </a>
                 </span> & ChatGPT @ 2025
             </p>
             <div className="flex flex-row justify-center items-center gap-2">
                 <a
-                href="https://github.com/YOUR_USERNAME/smart-ui-copy-assistant"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Github className="w-4 h-4 text-pink-400 hover:text-pink-300" />
-            </a>
-            <a
-                href="https://github.com/YOUR_USERNAME/smart-ui-copy-assistant"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Linkedin className="w-4 h-4 text-pink-400 hover:text-pink-300" />
-            </a>
+                    href="https://github.com/itsmetrina/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Github className="w-4 h-4 text-pink-400 hover:text-pink-300" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/trina-sikdar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Linkedin className="w-4 h-4 text-pink-400 hover:text-pink-300" />
+                </a>
             </div>
         </footer>
     );
