@@ -12,7 +12,7 @@ export default function Footer() {
                         rel="noopener noreferrer">
                         ❤️ Trina
                     </a>
-                </span> & ChatGPT @ 2025
+                </span> @ 2025
             </p>
             <div className="flex flex-row justify-center items-center gap-2">
                 <a
